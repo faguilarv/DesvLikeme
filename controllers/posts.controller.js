@@ -35,6 +35,7 @@ export const updatePosts = async (req, res) => {
       descripcion,
     };
     const posts = await postModel.updateOnePost(updatePosts);
+    return res.json(posts);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ ok: false });
