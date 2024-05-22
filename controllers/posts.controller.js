@@ -24,19 +24,8 @@ export const createPosts = async (req, res) => {
 
 export const updatePosts = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { usuario, url, descripcion } = req.body;
-    if (!usuario || !url || !descripcion) {
-      return res.json({ ok: false, msg: "todos los campos obligatorios" });
-    }
-    const updatePosts = {
-      id,
-      usuario,
-      url,
-      descripcion,
-    };
-    const posts = await postModel.updateOnePost(updatePosts);
-    return res.json(posts);
+    const id = await postModel.updateOnePost(req.params.id);
+    return res.json(id);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ ok: false });

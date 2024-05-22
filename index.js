@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/home.html");
 });
 
-app.use("/posts", postRoute);
+app.use("/", postRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

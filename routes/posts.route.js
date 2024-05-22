@@ -11,6 +11,6 @@ router.get("/posts", getAllPosts);
 
 router.post("/posts", createPosts);
 
-router.put("/:id", updatePosts);
+router.put("/posts/:id", updatePosts);
 
 export default router;
