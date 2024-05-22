@@ -13,8 +13,9 @@ export const getAllPosts = async (req, res) => {
 export const createPosts = async (req, res) => {
   try {
     const { usuario, url, descripcion } = req.body;
-    const post = await postModel.create({ usuario, url, descripcion });
-    return res.status(201).json(post);
+    const newPost = { usuario, url, descripcion };
+    const posts = await postModel.create(newPost);
+    return res.json(posts);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ ok: false });
